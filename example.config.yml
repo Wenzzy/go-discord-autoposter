@@ -1,0 +1,18 @@
+app_env: dev # dev - logs will prints in console / prod - logs will prints in logs_path
+db_file: ./autoposter.db
+logs_level: debug
+logs_path: logs/app.log
+discord_token: Ga01Rj4fY8qRfun09JvwTyno.45yFKK.j6kwUoL355zdwg4IfTe9C2aelieSlYkKmz51GU
+messages:
+  - topic: News about my life # optional, only for readability in logs
+    channel_name: MainChannel # optional, only for readability in logs
+    channel_id: 949589493854354345
+    interval: 2m # ex.: 1h20m, 2d1h50m, 30s
+    text: >
+      My first
+
+      multiline
+
+      message
+    files:
+      - image.png

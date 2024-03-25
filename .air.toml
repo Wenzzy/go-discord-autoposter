@@ -1,0 +1,45 @@
+# Config file for [Air](https://github.com/cosmtrek/air) in TOML format
+
+# Working directory
+# . or absolute path, please note that the directories following must be under root
+root = "."
+tmp_dir = "LDE/tmp"
+
+[build]
+# Just plain old shell command. You could use `make` as well.
+cmd = "go build -o ./LDE/tmp/main ./cmd/app/main.go"
+# Binary file yields from `cmd`.
+bin = "LDE/tmp/main"
+
+# Customize binary.
+# This is how you start to run your application. Since my application will works like CLI, so to run it, like to make a CLI call.
+# full_bin = "./services/notifier/tmp/build/engine http"
+# This log file places in your tmp_dir.
+log = "air_errors.log"
+# Watch these filename extensions.
+
+include_dir = []
+include_ext = ["go", "tpl", "yaml", "yml", "env"]
+# Ignore these filename extensions or directories.
+exclude_dir = ["tmp", "tmp_schema", "deploy", "docker", "assets", "tests", "dist", "LDE", "vendor.protogen", "infra"]
+# It's not necessary to trigger build each time file changes if it's too frequent.
+delay = 1000
+kill_delay = 10
+
+[log]
+# Show log time
+main_only = false
+time = true
+[color]
+build = "yellow"
+main = "magenta"
+runner = "green"
+watcher = "cyan"
+
+[misc]
+# Delete tmp directory on exit
+clean_on_exit = true
+
+[screen]
+clear_on_rebuild = true
+keep_scroll = true
